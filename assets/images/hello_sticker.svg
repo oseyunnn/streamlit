@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" width="220" height="80">
+  <defs>
+    <filter id="stickerShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="3" dy="4" stdDeviation="2" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect x="5" y="5" width="210" height="70" rx="16" fill="#FF1493" stroke="#FFFFFF" stroke-width="4" filter="url(#stickerShadow)"/>
+  <rect x="12" y="12" width="196" height="22" rx="8" fill="#FFFFFF"/>
+  <text x="110" y="27" font-family="'Courier New', monospace" font-weight="900" font-size="12" fill="#FF1493" text-anchor="middle" letter-spacing="2">HELLO, I AM</text>
+  <text x="110" y="60" font-family="Impact, Arial Black, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">AJ ENCABO</text>
+</svg>
