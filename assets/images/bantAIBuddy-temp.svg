@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="title description">
+  <title id="title">BantAI Buddy project image placeholder</title>
+  <desc id="description">A soft pink safety shield with a heart and chat bubbles.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff5f9"/>
+      <stop offset="1" stop-color="#f6eafa"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f57caf"/>
+      <stop offset="1" stop-color="#a973bd"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="500" rx="28" fill="url(#paper)"/>
+  <circle cx="92" cy="86" r="52" fill="#fbe1ed"/>
+  <circle cx="870" cy="405" r="76" fill="#e8ddf1"/>
+  <path d="M480 82 640 143v113c0 104-64 159-160 204-96-45-160-100-160-204V143z" fill="url(#shield)" stroke="#fff" stroke-width="12"/>
+  <path d="M480 214c-37-45-96-3-60 39l60 60 60-60c36-42-23-84-60-39z" fill="#fff7fb"/>
+  <path d="M198 178h154a28 28 0 0 1 28 28v49a28 28 0 0 1-28 28h-49l-36 33v-33h-69a28 28 0 0 1-28-28v-49a28 28 0 0 1 28-28z" fill="#fff" stroke="#e6b5cc" stroke-width="5"/>
+  <circle cx="228" cy="230" r="8" fill="#d94f91"/>
+  <circle cx="273" cy="230" r="8" fill="#d94f91"/>
+  <circle cx="318" cy="230" r="8" fill="#d94f91"/>
+  <path d="M710 282h75a22 22 0 0 1 22 22v31a22 22 0 0 1-22 22h-22l-27 24v-24h-26a22 22 0 0 1-22-22v-31a22 22 0 0 1 22-22z" fill="#fff" stroke="#cdb6db" stroke-width="5"/>
+  <text x="480" y="426" text-anchor="middle" fill="#5c405e" font-family="Georgia,serif" font-size="31" font-weight="700">BantAI Buddy</text>
+</svg>

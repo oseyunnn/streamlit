@@ -1,474 +1,520 @@
-/* ===================================================================
-   AJ'S WORLD • THE DEVELOPER EDITION • VOL. 01
-   CLEAN Y2K BARBIE DIARIES & DREAMHOUSE DESIGN SYSTEM
-   =================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,700&family=Space+Mono:wght@400;700&family=Syne:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap');
 
 :root {
-  --hot-pink: #E0218A;
-  --bubblegum: #FF85B3;
-  --rose-blush: #FFD2E2;
-  --cherry: #C2185B;
-  --mint-teal: #68C7B5;
-  --soft-mint: #E9F7F4;
-  --pale-pink: #FFF5F8;
-  --cream: #FFFDFE;
-  --dark-plum: #22121E;
-  --slate-ink: #3D2938;
-  --border-pink: #FFAEC9;
-  --sun-yellow: #FBD766;
+  --pink: #d94f91;
+  --pink-soft: #fff0f6;
+  --mauve: #786889;
+  --lilac-soft: #f3eff7;
+  --blue-soft: #f0f3f8;
+  --ink: #352b35;
+  --muted: #716873;
+  --paper: #fffdfa;
+  --line: #eee5e9;
 }
 
-/* Global Container Setup */
+.stApp {
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(255, 232, 242, .64), transparent 34rem),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(196, 169, 184, .045) 34px 35px),
+    var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
 .block-container {
-  padding-top: 1.5rem;
-  padding-bottom: 3.5rem;
-  max-width: 1200px;
+  max-width: 1160px;
+  padding: 2rem 2rem 4rem;
 }
 
-/* Base Typography */
-body, p, div, span, label {
-  font-family: 'Outfit', sans-serif;
-  color: var(--slate-ink);
+body, p, label, input, textarea, button, [data-testid="stMarkdownContainer"] {
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 9px;
-  height: 9px;
-}
-::-webkit-scrollbar-track {
-  background: var(--pale-pink);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--bubblegum);
-  border-radius: 6px;
-  border: 2px solid #FFF;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--hot-pink);
+[data-testid="stMarkdownContainer"] p {
+  line-height: 1.7;
+  color: var(--ink);
 }
 
-/* ===================================================================
-   PORTAL HEADER (Inspired by myscene.com & Barbie Diaries)
-   =================================================================== */
+h1, h2, h3, h4 {
+  color: var(--ink);
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+h1, h2 {
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  font-weight: 400 !important;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem) !important;
+  margin: .2rem 0 .45rem !important;
+}
+
+h3, h4 {
+  font-weight: 650;
+}
+
+[data-testid="stCaptionContainer"] {
+  color: var(--muted);
+}
+
+[data-testid="stSidebar"] {
+  background: #fff8fb;
+  border-right: 1px solid #f1e4eb;
+}
+
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
+  line-height: 1.55;
+}
+
+[data-testid="stMetric"] {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 3px 14px rgba(67, 45, 59, .035);
+}
+
+[data-testid="stMetricLabel"] {
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+[data-testid="stMetricValue"] {
+  color: var(--ink);
+  font-size: 1.35rem;
+}
+
+[data-testid="stVerticalBlockBorderWrapper"] {
+  border-color: var(--line);
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, .86);
+}
+
+[data-testid="stTabs"] [role="tab"] {
+  border-radius: 4px 4px 0 0;
+  padding: .5rem .9rem;
+}
+
+[data-testid="stTabs"] [aria-selected="true"] {
+  color: var(--pink);
+  background: var(--pink-soft);
+}
+
+[data-testid="stRadio"] label,
+[data-testid="stCheckbox"] label {
+  line-height: 1.55;
+}
+
+[data-testid="stRadio"] [role="radiogroup"] {
+  gap: .45rem;
+}
+
+[data-testid="stTextInput"] input,
+[data-testid="stTextArea"] textarea,
+[data-testid="stSelectbox"] [data-baseweb="select"] > div,
+[data-testid="stMultiSelect"] [data-baseweb="select"] > div {
+  border-radius: 10px;
+  border-color: #e7dce2;
+}
+
+div.stButton > button,
+[data-testid="stFormSubmitButton"] button,
+[data-testid="stLinkButton"] a,
+[data-testid="stDownloadButton"] button {
+  border-radius: 10px;
+  font-weight: 600;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+div.stButton > button[kind="primary"],
+[data-testid="stFormSubmitButton"] button[kind="primary"] {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: white;
+}
+
+div.stButton > button:hover,
+[data-testid="stFormSubmitButton"] button:hover,
+[data-testid="stLinkButton"] a:hover,
+[data-testid="stDownloadButton"] button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(65, 40, 56, .12);
+}
+
+[data-testid="stExpander"] {
+  border-color: var(--line);
+  border-radius: 12px;
+}
+
+hr {
+  border-color: var(--line);
+  margin: 2.5rem 0;
+}
+
 .myscene-portal-header {
-  background: #FFFFFF;
-  border: 2.5px solid var(--hot-pink);
-  border-radius: 18px;
-  padding: 14px 22px;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   flex-wrap: wrap;
-  gap: 12px;
-  box-shadow: 0 6px 18px rgba(224, 33, 138, 0.12);
-  margin-bottom: 1.5rem;
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+  background: white;
+  border: 1px solid #f1dce7;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(71, 43, 62, .04);
+}
+
+.myscene-portal-header::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 44%;
+  width: 76px;
+  height: 18px;
+  transform: rotate(-3deg);
+  background: repeating-linear-gradient(135deg, #efd8e5 0 7px, #f8e9f0 7px 14px);
+  opacity: .9;
+}
+
+.scrapbook-note {
+  display: inline-block;
+  margin: 0 0 1.25rem .25rem;
+  padding: .35rem .7rem;
+  transform: rotate(-1.5deg);
+  background: var(--blue-soft);
+  color: #586d89;
+  font-size: .82rem;
+}
+
+.washi-tape {
+  width: 76px;
+  height: 16px;
+  margin: 0 auto -8px;
+  position: relative;
+  z-index: 1;
+  transform: rotate(2deg);
+  background: repeating-linear-gradient(135deg, #efc8db 0 7px, #f7dce8 7px 14px);
+  opacity: .9;
+}
+
+.portal-brand {
+  position: relative;
+  z-index: 1;
+}
+
+.portal-nav-pills {
+  position: relative;
+  z-index: 1;
 }
 
 .portal-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: .8rem;
 }
 
 .portal-brand-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 900;
-  letter-spacing: -0.5px;
-  color: var(--hot-pink);
+  font-family: 'DM Serif Display', Georgia, serif;
+  color: var(--pink);
+  font-size: 1.65rem;
 }
 
 .portal-brand-sub {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--cherry);
-  letter-spacing: 1px;
+  color: var(--muted);
+  font-size: .82rem;
 }
 
 .portal-nav-pills {
   display: flex;
-  gap: 8px;
+  gap: .5rem;
   flex-wrap: wrap;
 }
 
 .portal-pill {
-  background: var(--pale-pink);
-  border: 1.5px solid var(--border-pink);
-  border-radius: 20px;
-  padding: 5px 14px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--dark-plum);
-  letter-spacing: 0.5px;
+  display: inline-block;
+  padding: .32rem .6rem;
+  border: 1px solid #efd6e2;
+  border-radius: 4px;
+  background: #fffafd;
+  color: #85445f !important;
+  font-size: .8rem;
+  text-decoration: none !important;
+}
+
+.portal-pill:hover {
+  border-color: #d7adc1;
+  background: #fff0f6;
+  color: #71344f !important;
 }
 
 .portal-pill.active {
-  background: var(--hot-pink);
-  color: #FFFFFF;
-  border-color: var(--hot-pink);
+  background: var(--pink-soft);
+  color: #934a6c !important;
 }
 
-/* ===================================================================
-   PAGE 1: BARBIE DIARIES NOTEBOOK & POLAROID (Inspo 2 & 3)
-   =================================================================== */
+.sidebar-section-link {
+  display: block;
+  padding: .5rem .65rem;
+  margin: .2rem 0;
+  border-bottom: 1px solid #f1e4eb;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.sidebar-section-link:hover {
+  color: var(--pink);
+  background: #fff0f6;
+}
+
 .diary-sheet-container {
-  background: #FFFDFE;
-  border: 2px solid #F5C2D5;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 6px 6px 0px #FFD2E2;
-  position: relative;
-  overflow: hidden;
-  padding: 2.2rem 2.5rem;
-  margin-bottom: 2rem;
-}
-
-/* Lined notebook paper background */
-.diary-lined-paper {
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 27px,
-    #FCE4EC 28px
-  );
-  line-height: 28px;
-  padding: 10px 0;
+  background: #fff8fb;
+  border: 1px solid #f0d7e3;
+  border-radius: 16px;
+  padding: 1.35rem;
 }
 
 .diary-banner-header {
-  background: linear-gradient(135deg, var(--hot-pink) 0%, var(--cherry) 100%);
-  color: #FFFFFF;
-  padding: 8px 18px;
-  border-radius: 8px;
   display: inline-block;
-  font-family: 'Syne', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 10px rgba(224, 33, 138, 0.25);
-  margin-bottom: 1.2rem;
+  margin-bottom: .8rem;
+  padding: .45rem .8rem;
+  border-radius: 3px;
+  background: #f3d9e5;
+  color: #7e4964;
+  font-size: .9rem;
+  font-weight: 700;
 }
 
-/* Polaroid Card */
+.diary-lined-paper {
+  line-height: 1.75;
+}
+
+.diary-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin: .45rem 0;
+}
+
+.diary-label {
+  min-width: 112px;
+  color: var(--pink);
+  font-weight: 700;
+}
+
+.diary-value {
+  color: var(--ink);
+}
+
 .polaroid-frame {
-  background: #FFFFFF;
-  padding: 12px 12px 28px 12px;
-  border-radius: 4px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.08);
-  border: 1px solid #ECECEC;
-  position: relative;
-  transition: transform 0.25s ease;
+  background: white;
+  padding: .7rem .7rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(50, 37, 46, .1);
 }
 
-.polaroid-frame:hover {
-  transform: rotate(0deg) scale(1.02);
+[data-testid="stImage"] img {
+  border: 9px solid white;
+  box-shadow: 0 7px 18px rgba(50, 37, 46, .12);
+  transform: rotate(-1deg);
 }
 
 .polaroid-caption {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 0.95rem;
-  font-weight: 700;
+  margin-top: .75rem;
   text-align: center;
-  color: var(--dark-plum);
-  margin-top: 12px;
+  color: var(--ink);
+  font-family: 'DM Serif Display', Georgia, serif;
 }
 
 .paperclip-pin {
   position: absolute;
-  top: -24px;
+  top: -18px;
   left: 20px;
-  width: 32px;
-  z-index: 10;
+  width: 30px;
+  z-index: 1;
 }
 
-/* Diary Entry Line Rows */
-.diary-row {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.diary-label {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 0.95rem;
-  color: var(--hot-pink);
-  min-width: 130px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.diary-value {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-  color: var(--dark-plum);
-  flex: 1;
-}
-
-/* Y2K Pink Mobile Phone Widget (Inspired by MyScene Inspo 2) */
 .y2k-phone-widget {
-  background: linear-gradient(180deg, #FF66AA 0%, #EE2277 100%);
-  border: 4px solid #FFFFFF;
-  outline: 3px solid #EE2277;
-  border-radius: 38px;
-  padding: 18px 16px 24px 16px;
-  box-shadow: 0 14px 32px rgba(238, 34, 119, 0.35);
-  position: relative;
-  max-width: 320px;
+  max-width: 300px;
   margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #e6b5cc;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #f8b8d3, #e986b4);
+  box-shadow: 0 10px 24px rgba(100, 54, 80, .1);
 }
 
 .phone-antenna {
-  position: absolute;
-  top: -16px;
-  left: 36px;
-  width: 16px;
-  height: 20px;
-  background: #FFFFFF;
-  border: 2px solid #EE2277;
-  border-radius: 8px 8px 0 0;
+  display: none;
 }
 
 .phone-screen {
-  background: #FFF0F5;
-  border: 3px solid #D81B60;
-  border-radius: 20px;
-  padding: 14px;
-  color: var(--dark-plum);
-  min-height: 240px;
+  min-height: 190px;
+  padding: .9rem;
+  border: 1px solid #e9c4d5;
+  border-radius: 15px;
+  background: #fff9fc;
 }
 
 .phone-status-bar {
   display: flex;
   justify-content: space-between;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.68rem;
-  color: var(--cherry);
-  font-weight: 700;
-  border-bottom: 1px solid #FFC1D9;
-  padding-bottom: 4px;
-  margin-bottom: 8px;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid #efdae4;
+  color: #8a5872;
+  font-size: .75rem;
 }
 
 .phone-keypad {
-  margin-top: 14px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: .45rem;
+  margin-top: .8rem;
 }
 
 .phone-key {
-  background: #FFFFFF;
-  border-radius: 12px;
-  height: 22px;
-  box-shadow: 0 2px 0px #C2185B;
   display: flex;
-  align-items: center;
+  height: 24px;
   justify-content: center;
-  font-size: 0.65rem;
-  font-weight: 800;
-  color: var(--cherry);
+  align-items: center;
+  border-radius: 8px;
+  background: white;
+  color: var(--pink);
 }
 
-/* ===================================================================
-   PAGE 2: DREAMHOUSE INFOGRAPHIC (Inspo 1)
-   =================================================================== */
 .dreamhouse-container {
-  background: var(--mint-teal);
-  border-radius: 24px;
-  padding: 24px;
-  box-shadow: 0 12px 35px rgba(104, 199, 181, 0.35);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 1.1rem;
+  border-radius: 16px;
+  background: transparent;
 }
 
 .dreamhouse-roof {
+  margin: .5rem 0 1rem;
   text-align: center;
-  margin-bottom: 16px;
 }
 
 .dreamhouse-roof-badge {
-  background: #FFFFFF;
-  color: var(--hot-pink);
-  font-family: 'Syne', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 900;
-  padding: 8px 28px;
-  border-radius: 24px;
   display: inline-block;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  letter-spacing: 1px;
+  padding: .45rem .8rem;
+  border-radius: 3px;
+  background: var(--lilac-soft);
+  color: #665777;
+  font-weight: 700;
 }
 
 .dreamhouse-room-card {
-  background: #FFFFFF;
-  border-radius: 16px;
-  padding: 1.4rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
   height: 100%;
+  margin-bottom: 1rem;
+  padding: 1.2rem;
+  border-radius: 14px;
+  background: white;
 }
 
 .dreamhouse-room-title {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: var(--cherry);
-  border-bottom: 2px solid #FFD2E2;
-  padding-bottom: 6px;
-  margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
+  gap: .8rem;
   align-items: baseline;
+  margin: .5rem 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px dashed #e6d9e2;
+  color: var(--mauve);
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .dreamhouse-room-tag {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--mint-teal);
-  text-transform: uppercase;
+  color: var(--muted);
+  font-size: .72rem;
 }
 
-/* ===================================================================
-   PAGE 3: PROJECT CLOSET (Inspo 2 & 3)
-   =================================================================== */
-.project-tab-ribbon {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
-}
-
-.project-ribbon-btn {
-  background: #FFFFFF;
-  border: 2px solid var(--border-pink);
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--dark-plum);
-  box-shadow: 2px 2px 0px var(--hot-pink);
+.project-feature-box,
+.stationery-card,
+.mail-receipt-box {
+  padding: 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: white;
 }
 
 .project-feature-box {
-  background: #FFFFFF;
-  border: 2.5px solid var(--hot-pink);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 10px 28px rgba(224, 33, 138, 0.12);
-  margin-bottom: 1.5rem;
-}
-
-.project-badge-pill {
-  background: var(--hot-pink);
-  color: #FFFFFF;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 12px;
-  letter-spacing: 1px;
-  display: inline-block;
-  margin-bottom: 8px;
-}
-
-.tech-tag-chic {
-  background: var(--pale-pink);
-  border: 1px solid var(--border-pink);
-  color: var(--cherry);
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  font-weight: 700;
-  display: inline-block;
-  margin: 3px;
-}
-
-/* ===================================================================
-   PAGE 4: DEAR AJ STATIONERY & MAIL (Inspo 3)
-   =================================================================== */
-.stationery-card {
-  background: #FFFFFF;
-  border: 2px dashed var(--hot-pink);
-  border-radius: 20px;
-  padding: 2.2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   position: relative;
+  border-top: 1px solid #eadce4;
+  background:
+    linear-gradient(160deg, rgba(255, 246, 250, .55), transparent 55%),
+    white;
+}
+
+.project-feature-box::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 24px;
+  width: 66px;
+  height: 17px;
+  transform: rotate(3deg);
+  background: repeating-linear-gradient(135deg, #efd8e5 0 7px, #f8e9f0 7px 14px);
+  opacity: .8;
+}
+
+.project-badge-pill,
+.tech-tag-chic {
+  display: inline-block;
+  margin: .2rem .15rem;
+  padding: .25rem .5rem;
+  border: 1px solid #ead8e1;
+  border-radius: 3px;
+  background: #fff8fb;
+  color: #784b65;
+  font-size: .78rem;
+}
+
+.stationery-card {
+  position: relative;
+  background: #fffafc;
+  border-style: dashed;
 }
 
 .stationery-stamp-pos {
   position: absolute;
-  top: 20px;
-  right: 25px;
+  top: 16px;
+  right: 18px;
 }
 
 .mail-receipt-box {
-  background: var(--pale-pink);
-  border: 1.5px solid var(--hot-pink);
-  border-radius: 14px;
-  padding: 1.2rem;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
+  background: #f4eff7;
 }
 
-/* ===================================================================
-   BUTTONS & CONTROLS
-   =================================================================== */
-div.stButton > button {
-  background: linear-gradient(135deg, var(--hot-pink) 0%, var(--cherry) 100%) !important;
-  color: #FFFFFF !important;
-  font-family: 'Outfit', sans-serif !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.5px !important;
-  border-radius: 20px !important;
-  border: none !important;
-  box-shadow: 0 4px 12px rgba(224, 33, 138, 0.3) !important;
-  padding: 0.45rem 1.4rem !important;
-  transition: all 0.2s ease !important;
+[data-testid="stRadio"] [role="radiogroup"] {
+  flex-wrap: wrap;
 }
 
-div.stButton > button:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(224, 33, 138, 0.45) !important;
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] {
+  gap: .25rem;
 }
 
-div.stDownloadButton > button {
-  background: var(--dark-plum) !important;
-  color: #FFFFFF !important;
-  font-family: 'Outfit', sans-serif !important;
-  font-weight: 700 !important;
-  border-radius: 20px !important;
-  border: 1.5px solid var(--bubblegum) !important;
+[data-testid="stSidebar"] [data-testid="stRadio"] label[data-checked="true"] {
+  color: var(--pink);
 }
 
-/* Sidebar Custom Styling */
-[data-testid="stSidebar"] {
-  background: #FFFFFF !important;
-  border-right: 2px solid var(--border-pink) !important;
-}
+@media (max-width: 700px) {
+  .block-container {
+    padding: 1.25rem 1rem 3rem;
+  }
 
-[data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 {
-  color: var(--cherry) !important;
-  font-family: 'Syne', sans-serif !important;
-}
+  .myscene-portal-header {
+    padding: .85rem;
+  }
 
-/* Metric styling */
-[data-testid="stMetricValue"] {
-  font-family: 'Syne', sans-serif !important;
-  font-weight: 900 !important;
-  color: var(--hot-pink) !important;
-}
-
-[data-testid="stMetricLabel"] {
-  font-family: 'Outfit', sans-serif !important;
-  font-weight: 700 !important;
-  color: var(--dark-plum) !important;
-  font-size: 0.8rem !important;
+  .diary-sheet-container,
+  .project-feature-box,
+  .stationery-card {
+    padding: 1rem;
+  }
 }

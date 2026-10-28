@@ -42,7 +42,7 @@ def render_sticker(image_rel_path, alt="", width="60px", rotate="0deg", extra_cl
     return f'<img src="{uri}" alt="{alt}" class="y2k-sticker {extra_class}" style="{style}" />'
 
 
-def save_feedback(name, email, topic, message, rating=None):
+def save_feedback(name, email, topic, message, rating=None, share_publicly=False):
     """Save user submission to reader_inbox.json."""
     entry = {
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -50,7 +50,8 @@ def save_feedback(name, email, topic, message, rating=None):
         "email": email.strip(),
         "topic": topic,
         "message": message.strip(),
-        "rating": rating
+        "rating": rating,
+        "share_publicly": share_publicly
     }
     
     submissions = []
@@ -78,12 +79,22 @@ def get_all_feedback():
     return []
 
 
+def get_public_feedback():
+    """Return only comments whose authors explicitly consented to public sharing."""
+    return [
+        {"message": entry["message"]}
+        for entry in get_all_feedback()
+        if isinstance(entry, dict)
+        and entry.get("share_publicly") is True
+        and isinstance(entry.get("message"), str)
+    ]
+
+
 def generate_resume_markdown(personal_info, bio_sections, skills, projects):
     """Generate clean downloadable Markdown profile for recruiters / professor."""
     md = f"# {personal_info['title']}\n"
     md += f"**{personal_info['name']}** • {personal_info['program']}\n"
     md += f"*{personal_info['institution']}* • Section: {personal_info['section']}\n\n"
-    md += f"> \"{personal_info['tagline']}\"\n\n"
     md += f"**GitHub:** [{personal_info['github']}]({personal_info['github']})\n\n"
     md += "---\n\n"
     

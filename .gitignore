@@ -31,6 +31,9 @@ venv.bak/
 # Streamlit temporary runtime data
 .streamlit/secrets.toml
 
+# Local feedback submitted through the portfolio form
+data/reader_inbox.json
+
 # IDE
 .vscode/
 .idea/

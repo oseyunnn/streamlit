@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="title description">
+  <title id="title">CampusTails project image placeholder</title>
+  <desc id="description">A playful pet-care card with a paw and record details.</desc>
+  <rect width="960" height="500" rx="28" fill="#fff7f5"/>
+  <rect x="124" y="92" width="712" height="275" rx="24" fill="#fff" stroke="#ead5e1" stroke-width="5"/>
+  <path d="M305 249c0-42 32-70 70-70 25 0 42 13 53 31 12-18 29-31 54-31 38 0 70 28 70 70 0 49-46 83-124 123-78-40-123-74-123-123z" fill="#f2b1ca"/>
+  <ellipse cx="355" cy="153" rx="23" ry="31" transform="rotate(-25 355 153)" fill="#a87eae"/>
+  <ellipse cx="424" cy="137" rx="22" ry="31" transform="rotate(-8 424 137)" fill="#a87eae"/>
+  <ellipse cx="490" cy="137" rx="22" ry="31" transform="rotate(8 490 137)" fill="#a87eae"/>
+  <ellipse cx="558" cy="153" rx="23" ry="31" transform="rotate(25 558 153)" fill="#a87eae"/>
+  <path d="M650 155h124m-124 43h124m-124 43h90" stroke="#d9c5dc" stroke-linecap="round" stroke-width="12"/>
+  <circle cx="678" cy="300" r="22" fill="#d96c9b"/>
+  <path d="m668 300 7 8 15-18" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+  <text x="480" y="418" text-anchor="middle" fill="#554255" font-family="Georgia,serif" font-size="34" font-weight="700">CampusTails</text>
+</svg>

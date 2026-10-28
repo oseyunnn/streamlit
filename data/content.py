@@ -6,195 +6,221 @@ Clean Portfolio Content & Data Model (Zero Emoji Clutter)
 PERSONAL_INFO = {
     "name": "Angela Jahziel Encabo",
     "nickname": "AJ",
-    "title": "AJ'S WORLD: A DEVELOPER'S DIARY",
-    "edition": "THE DEVELOPER EDITION • VOL. 01",
+    "title": "AJ's World",
+    "edition": "A little life, a little code",
     "program": "Third-Year Bachelor of Science in Computer Science",
     "section": "Section F2",
     "institution": "Cebu Institute of Technology–University (CIT-U)",
     "location": "Cebu City, Philippines",
-    "tagline": "BIG IDEAS. A LITTLE GLITTER. CODE WITH A PURPOSE.",
-    "subtitle": "A portfolio concept built around creativity, intentional choices, and technology that makes ideas tangible.",
     "avatar_caption": "AJ Encabo • CS Student & Developer",
     "github": "https://github.com/oseyunnn",
-    "current_status": "Building, experimenting, and turning ideas into projects, one commit at a time.",
+    "email": "angelajahziel@gmail.com",
+    "current_status": "Exploring better questions, building practical solutions, and learning from every iteration.",
     "palette": [
         {"name": "Hot Pink", "hex": "#E0218A"},
         {"name": "Bubblegum", "hex": "#FF85B3"},
-        {"name": "Cherry Red", "hex": "#C2185B"},
-        {"name": "Mint Teal", "hex": "#68C7B5"},
-        {"name": "Rose Blush", "hex": "#FFD2E2"},
+        {"name": "Soft Lilac", "hex": "#C9B8D5"},
+        {"name": "Soft Blue", "hex": "#89A9D2"},
+        {"name": "Warm Paper", "hex": "#FFF8F5"},
         {"name": "Midnight Plum", "hex": "#22121E"},
     ]
 }
 
+HOME_BIOGRAPHY = {
+    "autobiography": (
+        "As an aspiring student developer, I have used my college years at CIT University "
+        "to explore real-world problems, build solutions focused on the people they serve, "
+        "and find ways to connect with communities that need our support.",
+        "I am also affiliated with campus organizations, including The Technologian Student "
+        "Press, Elite Debate Society, Safe Spaces CIT-U, and Honor Society. These communities "
+        "have shaped how I see the world and encouraged me to be more intentional about what "
+        "I create and pursue."
+    ),
+    "organizations": [
+        "The Technologian Student Press",
+        "Elite Debate Society",
+        "Safe Spaces CIT-U",
+        "Honor Society",
+    ],
+    "interests": [
+        "Sitcoms",
+        "Olivia Rodrigo",
+        "Thrifting",
+        "Reading",
+        "Lingering with friends",
+    ],
+    "dislikes": [
+        "Sudden deadlines",
+        "Tight spaces",
+        "Crowded rooms",
+    ],
+}
+
 BIO_SECTIONS = [
     {
-        "heading": "Intentional By Design",
+        "heading": "The Weight of a Choice",
         "badge": "01 / CORE PHILOSOPHY",
         "tag": "PHILOSOPHY",
-        "text": (
-            "I am a firm believer in the power of being intentional in how we think, act, and respond to others. "
-            "Knowing what you want and making the choice to do what it takes to achieve or overcome it has been "
-            "the compass that guides the decisions I make for myself."
-        )
+        "text": "I believe the choices we make are among the clearest marks we leave behind. I try to act with intention, consider what my decisions mean for others, and follow through on the things I choose to pursue."
     },
     {
-        "heading": "Roots in the Queen City",
+        "heading": "Grounded in Cebu",
         "badge": "02 / BACKGROUND",
         "tag": "ORIGIN",
-        "text": (
-            "Having lived in Cebu all my life, I have grown up in an environment that has become the backdrop to "
-            "my experiences, interests, and ambitions. As a Computer Science student at Cebu Institute of Technology–University, "
-            "I continue to discover how technology can become a way to turn ideas into something tangible—whether through "
-            "software, interactive experiences, or systems designed to address real problems."
-        )
+        "text": "Cebu is home, and CIT-U is where I am learning to turn curiosity into capability. As a Computer Science student, I explore how software, games, and digital tools can respond to real needs—not simply work as intended, but make a meaningful difference."
     },
     {
-        "heading": "Logic Meets Storytelling",
+        "heading": "Where Logic Meets Imagination",
         "badge": "03 / CREATIVE TECH & GAMES",
         "tag": "INTERACTIVE",
-        "text": (
-            "My interests lie at the intersection of technology and creativity. I enjoy exploring how systems work, "
-            "figuring out how to solve problems, and thinking about how people will actually experience the things I build. "
-            "Game development, in particular, allows me to combine logic with storytelling, while collaborative projects "
-            "challenge me to communicate ideas, make decisions, and work toward a shared goal."
-        )
+        "text": "I am drawn to the space where systems and stories meet. Game development lets me explore how mechanics shape an experience, while collaborative projects challenge me to consider different perspectives and make technology more thoughtful, intuitive, and useful."
     },
     {
-        "heading": "Beyond the Classroom",
+        "heading": "Ideas with Real-World Stakes",
         "badge": "04 / REAL-WORLD IMPACT",
         "tag": "ACHIEVEMENTS",
-        "text": (
-            "Some of my most meaningful milestones so far have come from taking these ideas beyond the classroom. "
-            "From helping lead the development of BantAI Buddy, an AI-assisted child digital safety project, to creating "
-            "games for competitions and game jams, each experience has given me a different perspective on what it means "
-            "to build something with purpose."
-        )
+        "text": "Helping lead BantAI Buddy showed me that an idea can reach beyond the screen and address concerns faced by real communities. Alongside game projects and competitions, it has strengthened my belief that meaningful work begins by paying attention to people’s needs—and asking where existing solutions fall short."
     },
     {
-        "heading": "The Evolution Continues",
+        "heading": "Growing Into the Work",
         "badge": "05 / GROWTH MINDSET",
         "tag": "MINDSET",
-        "text": (
-            "I am still learning, experimenting, and finding my footing as a developer. I do not believe growth comes "
-            "from having everything figured out; I believe it comes from being intentional about the choices we make "
-            "and remaining willing to learn from them. For me, every project is another opportunity to explore what is "
-            "possible—and every line of code is a small step toward the person I want to become."
-        )
+        "text": "Being trusted with greater responsibility does not mean I must already know how to carry it. It means having the willingness to grow into it. Each project gives me room to build experience, learn from what does not work, and become more capable of the work placed in my hands."
     }
 ]
 
 DIARY_PROMPTS = [
     {"label": "Name", "value": "Angela Jahziel Encabo"},
-    {"label": "Program & Year", "value": "Third-Year BS Computer Science (CIT-U)"},
-    {"label": "Section", "value": "Section F2 · Class of 2026"},
-    {"label": "Roots", "value": "Cebu City, Philippines"},
-    {"label": "Tech Passions", "value": "Game Development, Child AI Safety, Systems Design"},
-    {"label": "Guiding Rule", "value": "Intentionality in every decision and every line of code"},
-    {"label": "Current Status", "value": "Building, experimenting, and shipping commits"}
+    {"label": "Studies", "value": "Third-year Computer Science · CIT-U"},
+    {"label": "Class", "value": "Section F2 · Class of 2026"},
+    {"label": "Home", "value": "Cebu City, Philippines"},
+    {"label": "I like", "value": "Interactive stories, digital safety, and useful systems"},
+    {"label": "Reminder", "value": "Leave your mark with intention"},
+    {"label": "These days", "value": "Questioning, building, and refining"}
 ]
 
 MILESTONES = [
     {
-        "year": "2023",
-        "title": "CS Foundations & Logic Awakening",
-        "subtitle": "CIT-U Academic Journey Begins",
-        "badge": "Foundations",
-        "details": "Began Bachelor of Science in Computer Science at CIT-U (Section F2). Mastered algorithms, data structures in C/C++, and object-oriented paradigms."
-    },
-    {
         "year": "2024",
-        "title": "Interactive Systems & Game Logic",
-        "subtitle": "Creative Tech Explorations",
-        "badge": "Discovery",
-        "details": "Ventured into interactive game architecture using Godot Engine and GDScript. Focused on dialogue systems, scene logic, and responsive UX."
+        "title": "Beginning the Computer Science journey",
+        "subtitle": "Building the foundations",
+        "badge": "Foundations",
+        "details": "Began studying Computer Science at CIT-U, building a foundation in algorithms, data structures, and programming—the tools that would help turn abstract problems into workable solutions."
     },
     {
         "year": "2025",
-        "title": "BantAI Buddy · 1st Runner-Up",
+        "title": "Bringing ideas to life through games",
+        "subtitle": "Learning through interaction",
+        "badge": "Discovery",
+        "details": "Began developing games in Godot, exploring dialogue, game logic, and the small interactions that shape how a player experiences a world."
+    },
+    {
+        "year": "2025",
+        "title": "BantAI Buddy · First runner-up",
         "subtitle": "IBPAP Can You Hack-IT Challenge 2025",
         "badge": "National 1st Runner-Up",
-        "details": "Team Lead for BantAI Buddy, an AI-assisted child digital safety shield integrating Microsoft Azure AI. Presented at the SRG 10th Asian Philanthropic Development Conference."
-    },
-    {
-        "year": "2025",
-        "title": "Salamin at Bakal · 4th Runner-Up",
-        "subtitle": "DOST Central Visayas Esports Game Dev Challenge",
-        "badge": "Esports Game Dev Winner",
-        "details": "Engineered game mechanics, collision math, and player interaction logic under strict competition constraints, winning 4th Runner-Up."
+        "details": "Led the BantAI Buddy team in developing an online-safety project using Azure AI. Earning first runner-up at IBPAP Can You Hack-IT and presenting at the SRG conference affirmed that student-built ideas can contribute to conversations around problems communities face today."
     },
     {
         "year": "2026",
-        "title": "Crossroads of Us · UPCSG Game Jam",
+        "title": "Salamin at Bakal · Fourth runner-up",
+        "subtitle": "DOST Central Visayas Next Level: Esports Game Dev Challenge",
+        "badge": "Fourth Runner-Up",
+        "details": "Contributed game mechanics and player interactions for the DOST Central Visayas Next Level: Esports Game Dev Challenge, where the project placed fourth runner-up."
+    },
+    {
+        "year": "2026",
+        "title": "Crossroads of Us · Game Jam",
         "subtitle": "2D Psychological Romance Narrative",
-        "badge": "Game Jam Selection",
-        "details": "Developed an anomaly-detection psychological narrative game in Godot, exploring relationship anxieties with branching dialogue systems."
+        "badge": "Game Jam Entry",
+        "details": "Created a 2D narrative game in Godot built around branching dialogue and noticing changes in the world, exploring how small details can influence a player’s interpretation and choices."
     },
     {
         "year": "2026",
-        "title": "CampusTails & Applied AI Systems",
+        "title": "CampusTails and more",
         "subtitle": "Senior Capstones & Distributed Databases",
         "badge": "Systems & Database",
-        "details": "Designed relational database schemas and automated telemetry systems for campus pet health records and community monitoring."
+        "details": "Worked on database design and campus pet health records for CampusTails, helping organize information so that important details could be recorded and managed more clearly."
     }
 ]
 
 SKILLS_DATA = [
     {
         "skill": "Creative Problem-Solving",
-        "score": 90,
-        "category": "Strategic & Creative",
-        "highlight": "90 / 100",
-        "description": "I enjoy looking at challenges from different perspectives and finding approaches that balance functionality, creativity, and purpose."
+        "score": 75,
+        "category": "Non-technical",
+        "highlight": "75 / 100",
+        "description": "I examine problems from different angles, question familiar approaches, and look for solutions that are both imaginative and grounded in practical needs."
     },
     {
         "skill": "Game Development",
         "score": 80,
         "category": "Interactive Systems",
         "highlight": "80 / 100",
-        "description": "I work with game mechanics, player interactions, dialogue systems, and scene logic in Godot Engine to bring interactive ideas to life."
+        "description": "I use Godot to shape game mechanics, dialogue, and interactive scenes, considering how each system supports the experience I want players to have."
     },
     {
-        "skill": "Team Leadership & Comm",
+        "skill": "Teamwork & Leadership",
         "score": 80,
-        "category": "Strategic & Creative",
+        "category": "Non-technical",
         "highlight": "80 / 100",
-        "description": "Collaborative projects have helped me practice coordinating work, communicating ideas, and contributing toward shared goals."
+        "description": "Collaborative work has taught me to communicate ideas, coordinate responsibilities, and bring different strengths together in pursuit of a shared goal."
     },
     {
         "skill": "Programming & Logic",
         "score": 75,
         "category": "Core Engineering",
         "highlight": "75 / 100",
-        "description": "I enjoy breaking down problems into smaller, manageable steps and using programming concepts to turn solutions into working applications."
+        "description": "I approach complex problems by breaking them into manageable steps, then applying programming logic to develop and refine working solutions."
     },
     {
         "skill": "Systems Analysis & Design",
         "score": 75,
         "category": "Core Engineering",
         "highlight": "75 / 100",
-        "description": "I am interested in how different parts of a system work together, from its requirements and workflows to its underlying logic."
+        "description": "I consider how a system’s components depend on one another, connecting early requirements and design decisions to how the finished solution behaves."
     },
     {
         "skill": "UI/UX & Interface Design",
         "score": 70,
         "category": "Interactive Systems",
         "highlight": "70 / 100",
-        "description": "I consider how users navigate and interact with a system, with attention to layout, clarity, visual hierarchy, and the overall experience."
+        "description": "I value interfaces that communicate clearly and guide people naturally, making usability part of the solution rather than an afterthought."
     },
     {
         "skill": "Database Design",
         "score": 65,
         "category": "Data & Cloud",
         "highlight": "65 / 100",
-        "description": "I have experience exploring how information is structured, stored, and managed in database-driven applications."
+        "description": "I have worked on structuring and storing information so that records remain organized, accessible, and useful to the systems that depend on them."
     },
     {
         "skill": "AI Integration",
         "score": 65,
         "category": "Data & Cloud",
         "highlight": "65 / 100",
-        "description": "Through collaborative projects, I have explored integrating AI services into applications to support practical, people-centered solutions."
+        "description": "I have explored integrating AI services into applications, with an emphasis on using the technology to address practical needs rather than adding complexity for its own sake."
+    },
+        {
+        "skill": "Performing",
+        "score": 85,
+        "category": "Non-technical",
+        "highlight": "85 / 100",
+        "description": "Performing has helped me communicate with presence, express ideas with intention, and connect with an audience."
+    },
+    {
+        "skill": "Writing",
+        "score": 85,
+        "category": "Non-technical",
+        "highlight": "85 / 100",
+        "description": "I use writing to shape ideas clearly, tell meaningful stories, and communicate with purpose."
+    },
+    {
+        "skill": "Debating",
+        "score": 80,
+        "category": "Non-technical",
+        "highlight": "80 / 100",
+        "description": "Debating strengthens my ability to examine different perspectives, build reasoned arguments, and express ideas thoughtfully."
     }
 ]
 
@@ -219,106 +245,59 @@ PROJECTS_DATA = [
     {
         "id": "bantai-buddy",
         "number": "01",
-        "tag": "AI & DIGITAL SAFETY",
+        "tag": "AI & Digital Safety",
         "title": "BantAI Buddy",
         "role": "Team Lead · Collaborative Project",
-        "summary": (
-            "An AI-assisted child digital safety tool designed to help protect children from harmful online interactions "
-            "while encouraging healthy digital independence. Features include detecting concerning content, filtering harmful language, "
-            "and notifying parents or guardians."
-        ),
+        "summary": "An AI-assisted online-safety tool designed to help protect children and encourage healthier digital habits.",
         "tools": ["JavaScript", "HTML/CSS", "Node.js", "Microsoft Azure AI Services"],
-        "outcome": (
-            "Earned 1st Runner-Up in the IBPAP Can You Hack-IT Challenge 2025 and presented at the "
-            "prestigious SRG 10th Asian Philanthropic Development Conference."
-        ),
+        "outcome": "First runner-up at IBPAP Can You Hack-IT 2025; presented at the SRG 10th Asian Philanthropic Development Conference.",
         "awards": ["1st Runner-Up · IBPAP Can You Hack-IT 2025", "Presenter · SRG 10th Asian Conference"],
         "link": "https://github.com/oseyunnn/BantAI-Buddy",
         "accent": "#E0218A",
-        "category": "AI / Safety"
+        "category": "AI / Safety",
+        "image": "assets/images/bantAIBuddy-temp.svg"
     },
     {
         "id": "salamin-at-bakal",
         "number": "02",
-        "tag": "GAME DEVELOPMENT",
+        "tag": "Game Development",
         "title": "Salamin at Bakal",
         "role": "Game Developer · Team Project",
-        "summary": (
-            "An interactive competitive combat game created for the DOST Central Visayas Next Level: Esports Game Dev Challenge. "
-            "Demonstrates deep experience in Godot scene trees, tournament-grade collision detection, and responsive game loops."
-        ),
+        "summary": "A competitive combat game developed for the DOST Central Visayas Esports Game Dev Challenge, bringing its mechanics and player interactions together into a playable experience.",
         "tools": ["Godot Engine", "GDScript", "2D Shaders", "Pixel Pipeline"],
-        "outcome": (
-            "Placed Fourth Runner-Up in the DOST Central Visayas Next Level: Esports Game Dev Challenge."
-        ),
+        "outcome": "Fourth runner-up at the DOST Central Visayas Next Level: Esports Game Dev Challenge.",
         "awards": ["4th Runner-Up · DOST Esports Game Dev Challenge"],
         "link": "https://github.com/binggbongg/dost-game-dev",
         "accent": "#C2185B",
-        "category": "Game Dev"
+        "category": "Game Dev",
+        "image": "assets/images/salaminAtbakal-temp.svg"
     },
     {
         "id": "crossroads-of-us",
         "number": "03",
-        "tag": "CREATIVE TECHNOLOGY",
+        "tag": "Creative Technology",
         "title": "Crossroads of Us",
         "role": "Game Developer · UPCSG Game Jam Entry",
-        "summary": (
-            "A 2D top-down psychological romance game exploring love, doubt, overthinking, and the paths we choose. "
-            "Players observe their surroundings for anomalies reflecting relationship anxieties, with branching dialogue and choices shaping the narrative."
-        ),
+        "summary": "A 2D narrative game about love and uncertainty, where players must notice subtle changes and decide how to respond as their choices shape the experience.",
         "tools": ["Godot Engine", "GDScript", "Dialogue Manager"],
-        "outcome": (
-            "Developed and launched for the UPCSG Game Jam 2026, combining gameplay logic, narrative design, dialogue systems, and environmental storytelling."
-        ),
-        "awards": ["Official Selection · UPCSG Game Jam 2026"],
+        "outcome": "Created for the UPCSG Game Jam 2026.",
         "link": "https://github.com/DareDevilLuc/Game-Jam",
-        "accent": "#68C7B5",
-        "category": "Game Dev"
+        "accent": "#89A9D2",
+        "category": "Game Dev",
+        "image": "assets/images/crossroadsOfUs-temp.svg"
     },
     {
         "id": "campustails",
         "number": "04",
-        "tag": "SYSTEMS & DATABASE",
+        "tag": "Systems & Database",
         "title": "CampusTails",
         "role": "Systems & Database Developer",
-        "summary": (
-            "A campus pet monitoring and animal welfare tracking system with pet information, vaccination records, "
-            "and health history logs designed to streamline university animal care."
-        ),
+        "summary": "A campus pet-care system that brings pet profiles, vaccination records, and health notes together in one organized place.",
         "tools": ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
-        "outcome": (
-            "Delivered normalized database schemas, multi-table relationship integrity, and intuitive administrative query dashboards."
-        ),
-        "awards": ["Systems Architecture Spotlight · CIT-U"],
+        "outcome": "Developed a structured database and supporting tools to make campus pet-care records easier to organize and manage.",
         "link": "https://github.com/oseyunnn",
-        "accent": "#FF85B3",
-        "category": "Systems & Database"
+        "accent": "#C9B8D5",
+        "category": "Systems & Database",
+        "image": "assets/images/campusTails-temp.svg"
     }
 ]
-
-Y2K_ARCHETYPES = {
-    "Visionary Lead": {
-        "title": "The Purposeful Lead (Yasmin / Safety & AI)",
-        "badge": "PROJECT LEAD",
-        "desc": "Intentional, strategic, and mission-driven. You excel at leading teams and architecting technology that protects users in the real world, as proven in BantAI Buddy.",
-        "color": "#E0218A"
-    },
-    "Game Architect": {
-        "title": "The Creative Architect (Cloe / Game Dev)",
-        "badge": "GAME DESIGNER",
-        "desc": "Imaginative and technically adept with interactive worlds. You breathe life into dialogue managers, collision physics, and narrative anomalies like Crossroads of Us.",
-        "color": "#68C7B5"
-    },
-    "Competition Specialist": {
-        "title": "The Tactical Competitor (Sasha / Esports Engine)",
-        "badge": "SYSTEMS ATHLETE",
-        "desc": "Disciplined, rapid, and podium-ready. You thrive under hackathon pressure and competition timeframes, earning regional titles with DOST and IBPAP.",
-        "color": "#C2185B"
-    },
-    "Interface Stylist": {
-        "title": "The Aesthetic Engineer (Jade / UI & Frontend)",
-        "badge": "DESIGN ENGINEER",
-        "desc": "Clean, observant, and detail-obsessed. You craft pixel-perfect visual hierarchy, bespoke retro widgets, and memorable user experiences.",
-        "color": "#FF85B3"
-    }
-}

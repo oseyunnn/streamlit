@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="title description">
+  <title id="title">Crossroads of Us project image placeholder</title>
+  <desc id="description">A dreamy lavender crossroads with a heart-shaped moon.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#e7dff4"/>
+      <stop offset="1" stop-color="#fff5fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="500" rx="28" fill="url(#sky)"/>
+  <circle cx="722" cy="116" r="58" fill="#fff" opacity=".82"/>
+  <path d="M722 91c-18-22-46-2-29 19l29 29 29-29c17-21-11-41-29-19z" fill="#d979a7"/>
+  <path d="M404 500c11-92 34-164 74-227 33-52 89-99 154-149-71 41-155 76-230 107-67 28-125 68-173 126 78-49 140-73 207-79-31 63-48 137-49 222z" fill="#d4c2e0"/>
+  <path d="M486 500c-2-81 13-156 44-225 27-61 66-116 115-169-65 59-122 115-164 179-43 65-68 139-75 215z" fill="#bb9fc9"/>
+  <path d="M248 316c21-15 43-15 65 0m-48-28 13 27 17-28m347 61 19-17 19 17m-12-29 12 29 12-29" fill="none" stroke="#8d709a" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+  <circle cx="168" cy="111" r="5" fill="#fff"/>
+  <circle cx="235" cy="166" r="4" fill="#fff"/>
+  <circle cx="830" cy="234" r="5" fill="#fff"/>
+  <text x="480" y="402" text-anchor="middle" fill="#493a56" font-family="Georgia,serif" font-size="34" font-weight="700">Crossroads of Us</text>
+</svg>
