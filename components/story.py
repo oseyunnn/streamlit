@@ -1,48 +1,42 @@
 import streamlit as st
-import os
 from data.content import BIO_SECTIONS, MILESTONES, PERSONAL_INFO
-from utils.helpers import get_image_base64, render_sticker
 
 
 def render_story_section():
-    """Render 01 / THE STORY: Autobiography, background, education, and milestones."""
+    """Render 01 / THE STORY: Clean editorial autobiography & interactive timeline."""
     
     st.markdown(
         """
-        <div class="spread-title">
-            <span>01 / THE STORY: A LITTLE ABOUT ME</span>
-            <span class="spread-category">AUTOBIOGRAPHY • CIT-U CS</span>
+        <div style="border-bottom: 2.5px solid #E0218A; padding-bottom: 8px; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap;">
+            <div>
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #E0218A; letter-spacing: 2px;">01 // THE STORY</span>
+                <h2 style="font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 900; color: #22121E; margin: 4px 0 0 0;">
+                    A Little About Me
+                </h2>
+            </div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 0.82rem; color: #C2185B;">
+                AUTOBIOGRAPHY · CIT-U CS
+            </div>
         </div>
         """,
         unsafe_allow_html=True
     )
     
-    col_text, col_interactive = st.columns([1.3, 1.1], gap="large")
+    col_narrative, col_widget = st.columns([1.35, 1], gap="large")
     
-    with col_text:
-        st.markdown(
-            f"""
-            <div style="margin-bottom: 1rem;">
-                <span class="sticker-pill">🌸 Angela Jahziel Encabo</span>
-                <span class="sticker-pill">🎓 {PERSONAL_INFO['program']}</span>
-                <span class="sticker-pill">📌 {PERSONAL_INFO['section']}</span>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-        
-        # Display each autobiography section with styled headers and badges
+    with col_narrative:
+        # Lined Diary Narrative Blocks (Clean, structured, zero emojis)
         for sec in BIO_SECTIONS:
             st.markdown(
                 f"""
-                <div style="background: #FFFFFF; border-left: 4px solid #FF1493; border-radius: 0 12px 12px 0; padding: 14px 18px; margin-bottom: 14px; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
-                    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 800; color: #FF1493; letter-spacing: 1.5px; text-transform: uppercase;">
+                <div style="background: #FFFFFF; border-left: 3.5px solid #E0218A; border-radius: 0 10px 10px 0; padding: 14px 18px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                    <div style="font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700; color: #E0218A; letter-spacing: 1px;">
                         {sec['badge']}
                     </div>
-                    <div style="font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 800; color: #2B1020; margin: 3px 0 6px 0;">
-                        {sec['icon']} {sec['heading']}
+                    <div style="font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 800; color: #22121E; margin: 3px 0 6px 0;">
+                        {sec['heading']}
                     </div>
-                    <div style="font-size: 0.94rem; line-height: 1.6; color: #3E1E31;">
+                    <div style="font-size: 0.94rem; line-height: 1.65; color: #3D2938;">
                         {sec['text']}
                     </div>
                 </div>
@@ -50,89 +44,89 @@ def render_story_section():
                 unsafe_allow_html=True
             )
             
-        # Optional reading mode toggle via checkbox
         st.write("")
-        show_philosophy_memo = st.checkbox("💖 Reveal Developer Motto & Notebook Note", value=True)
-        if show_philosophy_memo:
+        show_full_quote = st.checkbox("Display Developer Guiding Principle", value=True)
+        if show_full_quote:
             st.info(
-                "💡 **AJ's Core Belief:** \"I do not believe growth comes from having everything figured out; "
-                "I believe it comes from being intentional about the choices we make and remaining willing to learn from them.\""
+                "“I am a firm believer in the power of being intentional in how we think, act, and respond to others. "
+                "Knowing what you want and making the choice to do what it takes to achieve or overcome it has been "
+                "the compass that guides the decisions I make for myself.”"
             )
 
-    with col_interactive:
-        # Retro Window Card: Interactive Milestone Journey
+    with col_widget:
+        # Y2K Pink Mobile Phone Widget (Directly inspired by Image 2 "My Phone")
         st.markdown(
             f"""
-            <div class="retro-window">
-                <div class="retro-window-header">
-                    <span>⏳ TIMELINE_EXPLORER.EXE</span>
-                    <div class="retro-window-controls">
-                        <span class="retro-ctrl-btn retro-ctrl-min"></span>
-                        <span class="retro-ctrl-btn retro-ctrl-max"></span>
-                        <span class="retro-ctrl-btn retro-ctrl-close"></span>
+            <div class="y2k-phone-widget">
+                <div class="phone-antenna"></div>
+                <div class="phone-screen">
+                    <div class="phone-status-bar">
+                        <span>CIT-U NET</span>
+                        <span>[|||||] 88%</span>
+                    </div>
+                    <div style="text-align: center; margin: 10px 0 6px 0;">
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: 700; color: #E0218A; background: #FFF; padding: 2px 8px; border-radius: 8px; border: 1px solid #FFAEC9;">
+                            INCOMING SMS
+                        </span>
+                    </div>
+                    <div style="background: #FFFFFF; border: 1.5px solid #FF85B3; border-radius: 12px; padding: 12px; font-size: 0.85rem; line-height: 1.5; color: #22121E; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+                        <b>From: AJ Encabo</b><br/>
+                        <span style="color: #666; font-size: 0.72rem;">Status Dispatch // CIT-U F2</span>
+                        <hr style="margin: 6px 0; border: none; border-top: 1px dashed #FFAEC9;" />
+                        "{PERSONAL_INFO['current_status']}"
+                    </div>
+                    <div style="margin-top: 10px; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #880E4F; text-align: center;">
+                        REF: CSIT349-PORTFOLIO
                     </div>
                 </div>
-                <div class="retro-window-body">
-                    <p style="font-size: 0.88rem; color: #4A1A32; margin-top: 0;">
-                        Slide through my academic and competition journey from my first lines of C++ code to 
-                        hackathon trophies and published game jams!
-                    </p>
+                <div class="phone-keypad">
+                    <div class="phone-key">1</div>
+                    <div class="phone-key">2</div>
+                    <div class="phone-key">3</div>
+                    <div class="phone-key">4</div>
+                    <div class="phone-key">5</div>
+                    <div class="phone-key">6</div>
+                    <div class="phone-key">7</div>
+                    <div class="phone-key">8</div>
+                    <div class="phone-key">9</div>
+                    <div class="phone-key">*</div>
+                    <div class="phone-key">0</div>
+                    <div class="phone-key">#</div>
                 </div>
             </div>
             """,
             unsafe_allow_html=True
         )
         
-        # Interactive Slider component from lecture
+        st.write("")
+        st.markdown("#### Journey Milestones")
+        
+        # Interactive Milestone Slider (lecture requirement)
         selected_year = st.select_slider(
-            "Select Journey Milestone Year:",
+            "Select Milestone Year:",
             options=["2023", "2024", "2025", "2026"],
-            value="2025"
+            value="2025",
+            help="Explore key milestones across academic years"
         )
         
-        # Filter and display milestones matching or relevant to that year
-        matching_milestones = [m for m in MILESTONES if m["year"] == selected_year]
-        
-        st.markdown(f"#### 📅 Milestones for **{selected_year}**")
-        for m in matching_milestones:
+        matching = [m for m in MILESTONES if m["year"] == selected_year]
+        for m in matching:
             st.markdown(
                 f"""
-                <div class="timeline-card">
+                <div style="background: #FFFFFF; border: 1.5px solid #FFAEC9; border-left: 4px solid #E0218A; border-radius: 8px; padding: 12px 14px; margin-top: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
                     <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                        <span class="timeline-year">{m['year']}</span>
-                        <span class="sticker-tag">{m['badge']}</span>
+                        <span style="font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: #E0218A;">{m['year']}</span>
+                        <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700; color: #FFFFFF; background: #C2185B; padding: 2px 8px; border-radius: 4px;">{m['badge']}</span>
                     </div>
-                    <div style="font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: #2B1020; margin-top: 4px;">
-                        {m['title']}
-                    </div>
-                    <div style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.88rem; color: #D81B60; margin-bottom: 6px;">
-                        {m['subtitle']}
-                    </div>
-                    <div style="font-size: 0.9rem; line-height: 1.5; color: #4A2035;">
-                        {m['details']}
-                    </div>
+                    <div style="font-weight: 800; font-size: 0.95rem; color: #22121E; margin-top: 4px;">{m['title']}</div>
+                    <div style="font-size: 0.82rem; color: #666; margin-bottom: 6px;">{m['subtitle']}</div>
+                    <div style="font-size: 0.88rem; line-height: 1.5; color: #3D2938;">{m['details']}</div>
                 </div>
                 """,
                 unsafe_allow_html=True
             )
             
-        # Cher Horowitz Y2K aesthetic sticker feature
-        cher_uri = get_image_base64("assets/images/cher_as_if.png")
-        if cher_uri:
-            st.markdown(
-                f"""
-                <div style="text-align: center; margin-top: 1.5rem; background: #FFF0F5; border: 2px dashed #FF85B3; border-radius: 16px; padding: 14px;">
-                    <img src="{cher_uri}" style="max-width: 170px; border-radius: 12px; box-shadow: 0 4px 12px rgba(255,20,147,0.25);" alt="Cher As If" />
-                    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 700; color: #D81B60; margin-top: 8px;">
-                        "As IF any bug is going to stay in production!" ✨
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-            
-        # All milestones in an expander for complete review
-        with st.expander("📚 View Complete Chronological History (2023 - Present)"):
+        with st.expander("View Full Chronological History"):
             for m in MILESTONES:
-                st.write(f"**{m['year']} — {m['title']}** ({m['badge']})")
-                st.caption(f"{m['subtitle']} • {m['details']}")
+                st.write(f"**{m['year']} — {m['title']}** [{m['badge']}]")
+                st.caption(f"{m['details']}")

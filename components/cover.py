@@ -1,146 +1,114 @@
 import streamlit as st
 import os
-from data.content import PERSONAL_INFO, Y2K_QUOTES
-from utils.helpers import render_sticker, get_image_base64
+from data.content import PERSONAL_INFO, DIARY_PROMPTS
+from utils.helpers import get_image_base64
 
 
 def render_cover_section():
-    """Render the magazine cover hero section."""
+    """Render Page 1 / Hero: Barbie Diaries & MyScene Portal Spread."""
     
-    # Top Ticker / Marquee
-    st.markdown(
-        """
-        <div class="y2k-ticker">
-            <span>💖 THE DEVELOPER EDITION • VOL. 01</span>
-            <span>⭐ CEBU INSTITUTE OF TECHNOLOGY–UNIVERSITY</span>
-            <span>✨ SECTION F2 • BSCS</span>
-            <span>💋 BIG IDEAS. A LITTLE GLITTER. CODE WITH A PURPOSE.</span>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    # 1. MyScene / Barbie Diaries Portal Header
+    barbie_logo_uri = get_image_base64("assets/images/barbie_logo.svg")
     
-    # Magazine Masthead Container
     st.markdown(
         f"""
-        <div class="masthead-container">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
+        <div class="myscene-portal-header">
+            <div class="portal-brand">
+                {f'<img src="{barbie_logo_uri}" style="height: 38px;" alt="Barbie" />' if barbie_logo_uri else ''}
                 <div>
-                    <span class="magazine-badge">{PERSONAL_INFO["edition"]}</span>
-                    <h1 class="masthead-title">AJ'S WORLD</h1>
-                    <div class="masthead-tagline">{PERSONAL_INFO["tagline"]}</div>
-                    <div class="masthead-sub">{PERSONAL_INFO["subtitle"]}</div>
+                    <div class="portal-brand-title">aj-world.com</div>
+                    <div class="portal-brand-sub">THE DEVELOPER EDITION • VOL. 01 // CIT-U CS</div>
                 </div>
-                <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
-                    <span class="sticker-pill">📍 {PERSONAL_INFO["location"]}</span>
-                    <span class="sticker-pill">🎓 {PERSONAL_INFO["institution"]}</span>
-                    <span class="sticker-pill" style="border-color: #D81B60; color: #D81B60;">💻 {PERSONAL_INFO["section"]}</span>
-                </div>
+            </div>
+            <div class="portal-nav-pills">
+                <span class="portal-pill active">All About AJ</span>
+                <span class="portal-pill">The Skill Sheet</span>
+                <span class="portal-pill">Project Runway</span>
+                <span class="portal-pill">Reader Mail</span>
             </div>
         </div>
         """,
         unsafe_allow_html=True
     )
     
-    # 2-Column Cover Layout: Left Column = Editorial Feature & Profile Photo, Right Column = Magazine Features & Quick Stats
-    col_photo, col_intro = st.columns([1.1, 1.4], gap="large")
+    # 2. Main 2-Column Spread: Left Polaroid & Phone, Right Ruled Diary Sheet
+    col_visual, col_diary = st.columns([1.1, 1.4], gap="large")
     
-    with col_photo:
-        photo_path = os.path.join("assets", "images", "angela_portrait.jpg")
-        photo_uri = get_image_base64(photo_path)
-        
-        # Bratz Logo / Badge
-        bratz_logo_path = os.path.join("assets", "images", "bratz_cover_header.png")
-        bratz_logo_uri = get_image_base64(bratz_logo_path)
+    with col_visual:
+        # Pinned Polaroid with Silver Paperclip
+        photo_uri = get_image_base64("assets/images/angela_portrait.jpg")
+        paperclip_uri = get_image_base64("assets/images/paperclip.svg")
+        barcode_uri = get_image_base64("assets/images/barcode.svg")
         
         st.markdown(
             f"""
-            <div class="photo-frame-y2k">
-                <div style="position: absolute; top: -18px; left: -14px; z-index: 10;">
-                    {render_sticker("assets/images/sparkle_star.svg", width="48px", rotate="-15deg")}
-                </div>
-                <div style="position: absolute; top: -15px; right: -12px; z-index: 10;">
-                    {render_sticker("assets/images/chrome_heart.svg", width="46px", rotate="12deg")}
-                </div>
-                {f'<div style="text-align: center; margin-bottom: 6px;"><img src="{bratz_logo_uri}" style="max-height: 55px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);" alt="Bratz Magazine" /></div>' if bratz_logo_uri else ''}
-                <img src="{photo_uri}" style="width: 100%; border-radius: 14px; object-fit: cover; max-height: 440px; display: block;" alt="Angela Jahziel Encabo" />
-                <div class="photo-caption-tag">
-                    🌸 <b>{PERSONAL_INFO["name"]}</b> • {PERSONAL_INFO["avatar_caption"]}
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-        
-        st.caption("📸 Authentic portrait of Angela • Certified Y2K Developer & Game Creator")
-        
-    with col_intro:
-        # Retro Window Card: Cover Story Preview
-        st.markdown(
-            f"""
-            <div class="retro-window">
-                <div class="retro-window-header">
-                    <span>🌸 AJ_PROFILE.EXE — COVER STORY INTRO</span>
-                    <div class="retro-window-controls">
-                        <span class="retro-ctrl-btn retro-ctrl-min"></span>
-                        <span class="retro-ctrl-btn retro-ctrl-max"></span>
-                        <span class="retro-ctrl-btn retro-ctrl-close"></span>
-                    </div>
-                </div>
-                <div class="retro-window-body">
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
-                        <span class="sticker-tag">👑 Third-Year BSCS</span>
-                        <span class="sticker-tag">🏆 Hackathon 1st Runner-Up</span>
-                        <span class="sticker-tag">🎮 Game Developer</span>
-                        <span class="sticker-tag">🛡️ AI Digital Safety</span>
-                    </div>
-                    <h3 style="font-family: 'Syne', sans-serif; font-size: 1.45rem; color: #2B1020; margin-top: 0;">
-                        Welcome to My Developer's Diary! 💖
-                    </h3>
-                    <p style="font-size: 0.96rem; line-height: 1.6; color: #3A1528;">
-                        I am <b>Angela Jahziel Encabo</b>, a third-year Computer Science student at 
-                        <b>Cebu Institute of Technology–University (CIT-U)</b>, Section F2. 
-                        This portfolio is built like a 2000s glossy magazine spread celebrating intentional 
-                        problem-solving, interactive games, AI child protection, and unapologetic creativity!
-                    </p>
-                    <div style="background: #FFF0F5; border: 2px dashed #FF1493; border-radius: 12px; padding: 12px; margin-top: 10px;">
-                        <span style="font-weight: 800; color: #FF1493; font-size: 0.82rem; text-transform: uppercase;">Current Status:</span>
-                        <div style="font-style: italic; color: #2B1020; font-size: 0.92rem; margin-top: 2px;">
-                            "{PERSONAL_INFO["current_status"]}"
+            <div style="position: relative; margin-top: 15px; margin-bottom: 25px;">
+                {f'<img src="{paperclip_uri}" class="paperclip-pin" alt="Paperclip" />' if paperclip_uri else ''}
+                <div class="polaroid-frame" style="transform: rotate(-2deg);">
+                    <img src="{photo_uri}" style="width: 100%; border-radius: 2px; display: block; max-height: 380px; object-fit: cover;" alt="Angela Encabo" />
+                    <div class="polaroid-caption">
+                        Angela Jahziel Encabo
+                        <div style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #880E4F; font-weight: normal; margin-top: 4px;">
+                            CIT-U CS · SECTION F2
                         </div>
                     </div>
                 </div>
+                {f'<div style="text-align: center; margin-top: 12px;"><img src="{barcode_uri}" style="height: 36px; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);" alt="Barcode" /></div>' if barcode_uri else ''}
             </div>
             """,
             unsafe_allow_html=True
         )
         
-        # Editorial Metrics Row
-        m_col1, m_col2, m_col3, m_col4 = st.columns(4)
-        with m_col1:
-            st.metric(label="Academic Year", value="3rd Year", delta="CIT-U")
-        with m_col2:
-            st.metric(label="Featured Projects", value="4", delta="2 Wins 🏆")
-        with m_col3:
-            st.metric(label="Top Skill", value="90 / 100", delta="Problem Solving")
-        with m_col4:
-            st.metric(label="Vibe Level", value="100%", delta="Y2K Glitter ✨")
+        # Subtle caption without emoji
+        st.caption("Class of 2026 · Third-Year Bachelor of Science in Computer Science")
+        
+    with col_diary:
+        # Ruled Notebook Sheet (Barbie Diaries Style from Inspo 3)
+        prompts_html = ""
+        for p in DIARY_PROMPTS:
+            prompts_html += f"""
+            <div class="diary-row">
+                <span class="diary-label">{p['label']}:</span>
+                <span class="diary-value">{p['value']}</span>
+            </div>
+            """
             
-        # Interactive Quote of the Day
-        st.write("")
-        col_q_btn, col_q_text = st.columns([1, 2.5])
-        with col_q_btn:
-            if "quote_idx" not in st.session_state:
-                st.session_state.quote_idx = 0
-            if st.button("✨ Flip Quote ✨", use_container_width=True):
-                st.session_state.quote_idx = (st.session_state.quote_idx + 1) % len(Y2K_QUOTES)
-        with col_q_text:
-            curr_quote = Y2K_QUOTES[st.session_state.quote_idx]
-            st.markdown(
-                f"""
-                <div style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.9rem; color: #D81B60; border-left: 3px solid #FF1493; padding-left: 10px;">
-                    "{curr_quote['quote']}" — <b>{curr_quote['author']}</b>
+        st.markdown(
+            f"""
+            <div class="diary-sheet-container">
+                <div class="diary-banner-header">
+                    BARBIE DIARIES: ALL ABOUT ME
                 </div>
-                """,
-                unsafe_allow_html=True
-            )
+                <div class="diary-lined-paper">
+                    {prompts_html}
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        
+        # Clean Editorial Metrics Row (Zero Emojis)
+        m1, m2, m3, m4 = st.columns(4)
+        with m1:
+            st.metric(label="ACADEMIC YEAR", value="3rd Year", delta="CIT-U")
+        with m2:
+            st.metric(label="RUNWAY PROJECTS", value="4 Works", delta="2 Podiums")
+        with m3:
+            st.metric(label="TOP COMPETENCY", value="90 / 100", delta="Problem Solving")
+        with m4:
+            st.metric(label="CLASS COHORT", value="SEC F2", delta="Active 2026")
+            
+        st.write("")
+        st.markdown(
+            f"""
+            <div style="background: #FFF5F8; border-left: 3px solid #E0218A; padding: 12px 16px; border-radius: 0 8px 8px 0; margin-top: 10px;">
+                <div style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #E0218A; letter-spacing: 1px;">
+                    EDITORIAL NOTE
+                </div>
+                <div style="font-size: 0.92rem; color: #22121E; font-style: italic; margin-top: 4px; line-height: 1.5;">
+                    "{PERSONAL_INFO['subtitle']}"
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )

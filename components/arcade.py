@@ -1,113 +1,108 @@
 import streamlit as st
 import os
 from data.content import Y2K_ARCHETYPES
-from utils.helpers import get_image_base64, render_sticker
 
 
 def render_arcade_section():
-    """Render 05 / Y2K BONUS BOOTH: Interactive Bratz Quiz, Moodboard, and Retro Arcade."""
+    """Render 05 / THE Y2K LOUNGE: Clean Dev Archetype Quiz and Inspiration Gallery."""
     
     st.markdown(
         """
-        <div class="spread-title">
-            <span>05 / THE Y2K LOUNGE: QUIZ & MOODBOARD</span>
-            <span class="spread-category">BONUS MAGAZINE EDITORIAL • PASSION FOR FASHION & CODE</span>
+        <div style="border-bottom: 2.5px solid #E0218A; padding-bottom: 8px; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap;">
+            <div>
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #E0218A; letter-spacing: 2px;">05 // THE Y2K LOUNGE</span>
+                <h2 style="font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 900; color: #22121E; margin: 4px 0 0 0;">
+                    Dev Archetype Quiz & Moodboard
+                </h2>
+            </div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 0.82rem; color: #C2185B;">
+                BONUS EDITORIAL · PASSION FOR FASHION & CODE
+            </div>
         </div>
         """,
         unsafe_allow_html=True
     )
     
-    tab_quiz, tab_moodboard, tab_jukebox = st.tabs([
-        "💖 Which Bratz Dev Are You?",
-        "📸 The Y2K Inspiration Board",
-        "💿 AJ's 2000s Coding Mixtape"
+    tab_quiz, tab_moodboard, tab_mixtape = st.tabs([
+        "Developer Archetype Quiz",
+        "Visual Inspiration Gallery",
+        "2000s Coding Mixtape"
     ])
     
-    # ---------------- TAB 1: BRATZ QUIZ ----------------
+    # ---------------- TAB 1: QUIZ ----------------
     with tab_quiz:
-        st.markdown("### 👑 Interactive Quiz: Discover Your Y2K Developer Persona!")
-        st.caption("Answer 3 quick questions to discover whether you align with Yasmin, Cloe, Sasha, or Jade in tech!")
+        st.markdown("### Interactive Quiz: Which CIT-U Developer Archetype Are You?")
+        st.caption("Answer three questions to discover your technical alignment.")
         
-        col_q, col_res = st.columns([1.3, 1.1], gap="large")
+        col_q, col_res = st.columns([1.3, 1], gap="large")
         
         with col_q:
             q1 = st.radio(
-                "1. When starting a brand-new coding project, what is your first instinct?",
+                "1. When architecting a new project, what is your top priority?",
                 options=[
-                    "Ensure the project solves a real human problem and protects vulnerable users (Yasmin)",
-                    "Dream up an emotional storyline, characters, and interactive game worlds (Cloe)",
-                    "Set up the Git repo, organize sprint boards, and lead the team to victory (Sasha)",
-                    "Craft the neon color palette, CSS micro-animations, and liquid chrome UI (Jade)"
+                    "Solving real human problems and protecting vulnerable users (Visionary Lead)",
+                    "Crafting atmospheric game logic, scene trees, and storytelling (Game Architect)",
+                    "Building robust tournament-ready code under intense deadlines (Competition Specialist)",
+                    "Engineering pixel-perfect layout hierarchy and responsive UI (Interface Stylist)"
                 ],
                 index=0
             )
             
             q2 = st.radio(
-                "2. Your dream hacking session snack & aesthetic consists of:",
+                "2. Your ideal engineering workflow consists of:",
                 options=[
-                    "Herbal strawberry tea, flower pins, and intentional journaling (Yasmin)",
-                    "Pink bubble tea, sketchpad, and indie game lo-fi beats (Cloe)",
-                    "Iced espresso, designer blazer, and dual 4K command terminals (Sasha)",
-                    "Glitter lip gloss, platform sneakers, and hyperpop remix playlist (Jade)"
+                    "Intentional sprint planning and cross-functional leadership (Visionary Lead)",
+                    "Iterating game loops, shaders, and dialogue scripts (Game Architect)",
+                    "Optimizing algorithm runtimes and rapid hackathon debugging (Competition Specialist)",
+                    "Prototyping typography, design tokens, and clean CSS (Interface Stylist)"
                 ],
                 index=0
             )
             
             q3 = st.radio(
-                "3. Which software achievement makes you feel most accomplished?",
+                "3. Which milestone brings the highest satisfaction?",
                 options=[
-                    "Receiving feedback that an AI tool kept children safe online (Yasmin)",
-                    "Watching players gasp at an unexpected narrative anomaly in a game jam (Cloe)",
-                    "Holding a shiny 1st Runner-Up trophy at a national competition (Sasha)",
-                    "Having recruiters and users rave about an unforgettable aesthetic UI (Jade)"
+                    "Presenting child digital safety research at a national conference (Visionary Lead)",
+                    "Watching players solve anomalies in an indie game jam release (Game Architect)",
+                    "Winning a regional runner-up trophy in an esports challenge (Competition Specialist)",
+                    "Receiving commendations for clean, elegant software presentation (Interface Stylist)"
                 ],
                 index=0
             )
             
-            calc_button = st.button("✨ Reveal My Bratz Dev Archetype! ✨", use_container_width=True)
+            calc_btn = st.button("Calculate My Developer Archetype", use_container_width=True)
             
         with col_res:
-            # Determine result
-            if "revealed_archetype" not in st.session_state:
-                st.session_state.revealed_archetype = "Yasmin"
+            if "clean_archetype" not in st.session_state:
+                st.session_state.clean_archetype = "Visionary Lead"
                 
-            if calc_button:
-                # Count choices
-                votes = {"Yasmin": 0, "Cloe": 0, "Sasha": 0, "Jade": 0}
+            if calc_btn:
+                votes = {"Visionary Lead": 0, "Game Architect": 0, "Competition Specialist": 0, "Interface Stylist": 0}
                 for q in [q1, q2, q3]:
-                    if "Yasmin" in q: votes["Yasmin"] += 1
-                    elif "Cloe" in q: votes["Cloe"] += 1
-                    elif "Sasha" in q: votes["Sasha"] += 1
-                    elif "Jade" in q: votes["Jade"] += 1
+                    if "Visionary Lead" in q: votes["Visionary Lead"] += 1
+                    elif "Game Architect" in q: votes["Game Architect"] += 1
+                    elif "Competition Specialist" in q: votes["Competition Specialist"] += 1
+                    elif "Interface Stylist" in q: votes["Interface Stylist"] += 1
                 winner = max(votes, key=votes.get)
-                st.session_state.revealed_archetype = winner
-                st.toast(f"You matched with {winner}! 💖", icon="👑")
+                st.session_state.clean_archetype = winner
+                st.toast(f"Result computed: {winner}")
                 
-            archetype = Y2K_ARCHETYPES[st.session_state.revealed_archetype]
+            arc = Y2K_ARCHETYPES[st.session_state.clean_archetype]
             
             st.markdown(
                 f"""
-                <div class="retro-window" style="border-color: {archetype['color']};">
-                    <div class="retro-window-header" style="background: linear-gradient(90deg, {archetype['color']}, #D81B60);">
-                        <span>👑 RESULT: {archetype['title'].upper()}</span>
-                        <div class="retro-window-controls">
-                            <span class="retro-ctrl-btn retro-ctrl-min"></span>
-                            <span class="retro-ctrl-btn retro-ctrl-max"></span>
-                            <span class="retro-ctrl-btn retro-ctrl-close"></span>
-                        </div>
+                <div style="background: #FFFFFF; border: 2.5px solid {arc['color']}; border-radius: 16px; padding: 1.5rem; box-shadow: 0 8px 24px rgba(0,0,0,0.06);">
+                    <div style="font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700; color: {arc['color']}; letter-spacing: 1px;">
+                        RESULT // {arc['badge']}
                     </div>
-                    <div class="retro-window-body">
-                        <div style="font-size: 2.2rem; margin-bottom: 6px;">{archetype['icon']}</div>
-                        <h3 style="color: #2B1020; font-family: 'Syne', sans-serif; margin-top: 0;">
-                            {archetype['title']}
-                        </h3>
-                        <p style="font-size: 0.95rem; line-height: 1.6; color: #3A1828;">
-                            {archetype['desc']}
-                        </p>
-                        <div style="margin-top: 14px;">
-                            <span class="sticker-pill">Certified Bratz Dev ✨</span>
-                            <span class="sticker-pill" style="border-color: #D81B60; color: #D81B60;">CIT-U Approved 💖</span>
-                        </div>
+                    <h4 style="font-family: 'Syne', sans-serif; font-size: 1.35rem; color: #22121E; margin: 6px 0 10px 0;">
+                        {arc['title']}
+                    </h4>
+                    <p style="font-size: 0.92rem; line-height: 1.6; color: #3D2938;">
+                        {arc['desc']}
+                    </p>
+                    <div style="margin-top: 14px; border-top: 1px solid #FFE4EC; padding-top: 10px; font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #666;">
+                        MATCH RATING: 100% // CIT-U CS
                     </div>
                 </div>
                 """,
@@ -116,88 +111,75 @@ def render_arcade_section():
             
     # ---------------- TAB 2: MOODBOARD ----------------
     with tab_moodboard:
-        st.markdown("### 📸 The Original Inspiration Board")
-        st.caption("The visual DNA that shaped this portfolio: 2000s glitter, Bratz dolls, Barbie pink, and retro Windows XP.")
+        st.markdown("### Visual Inspiration Archive")
+        st.caption("Reference materials that established the editorial tone of this portfolio.")
         
-        col_mb1, col_mb2 = st.columns([1.3, 1], gap="large")
-        with col_mb1:
+        col_img, col_notes = st.columns([1.3, 1], gap="large")
+        with col_img:
             mb_path = os.path.join("assets", "images", "identity_moodboard.png")
             if os.path.exists(mb_path):
-                st.image(mb_path, caption="AJ's Original Y2K Identity Moodboard", use_container_width=True)
-        with col_mb2:
+                st.image(mb_path, caption="Original Identity Moodboard", use_container_width=True)
+        with col_notes:
             st.markdown(
                 """
-                <div class="retro-window">
-                    <div class="retro-window-header">
-                        <span>💖 DESIGN_MANIFESTO.TXT</span>
-                        <div class="retro-window-controls">
-                            <span class="retro-ctrl-btn retro-ctrl-min"></span>
-                            <span class="retro-ctrl-btn retro-ctrl-max"></span>
-                            <span class="retro-ctrl-btn retro-ctrl-close"></span>
-                        </div>
+                <div style="background: #FFFFFF; border: 1.5px solid #FFD2E2; border-radius: 16px; padding: 1.5rem;">
+                    <div style="font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #E0218A;">
+                        DESIGN RATIONALE
                     </div>
-                    <div class="retro-window-body">
-                        <h4 style="margin-top: 0; color: #FF1493;">Why Y2K Magazine?</h4>
-                        <p style="font-size: 0.9rem; line-height: 1.55; color: #3A1528;">
-                            Technology doesn't have to be clinical, cold, or monochromatic gray. 
-                            The early 2000s represented an era where personal computing was playful, 
-                            expressive, and packed with personality.
-                        </p>
-                        <p style="font-size: 0.9rem; line-height: 1.55; color: #3A1528;">
-                            By infusing <b>Bratz</b> boldness, <b>Barbie</b> vibrant confidence, and 
-                            clean responsive Streamlit architecture, this portfolio proves that 
-                            rigorous computer science and joyful creative expression belong together!
-                        </p>
-                    </div>
+                    <h4 style="font-family: 'Syne', sans-serif; font-size: 1.25rem; color: #22121E; margin: 4px 0 12px 0;">
+                        Intentional Playfulness
+                    </h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #444;">
+                        Early-2000s design combined structured multimedia layouts with vivid color palettes, 
+                        tactile skeuomorphic elements, and personal expression.
+                    </p>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #444;">
+                        In this Streamlit application, the same discipline is applied: clean typographical hierarchy, 
+                        custom-tuned Altair charts, and modular components demonstrate rigorous technical craft 
+                        wrapped in memorable aesthetics.
+                    </p>
                 </div>
                 """,
                 unsafe_allow_html=True
             )
 
-    # ---------------- TAB 3: RETRO MIXTAPE ----------------
-    with tab_jukebox:
-        st.markdown("### 💿 AJ's 2000s Coding Mixtape")
-        st.caption("Curated soundtrack for late-night hackathons and Godot game jams.")
+    # ---------------- TAB 3: MIXTAPE ----------------
+    with tab_mixtape:
+        st.markdown("### 2000s Coding Mixtape")
+        st.caption("Curated playlist inspiration for late-night programming sessions.")
         
         tracks = [
-            {"track": "01. So Good", "artist": "Bratz Rock Angelz", "vibe": "Hackathon Crunch Energy 🎸", "year": "2005"},
-            {"track": "02. Barbie Girl", "artist": "Aqua", "vibe": "Frontend Glitter Mode 💖", "year": "1997"},
-            {"track": "03. Toxic", "artist": "Britney Spears", "vibe": "Bug Extermination Groove ⚡", "year": "2003"},
-            {"track": "04. So Yesterday", "artist": "Hilary Duff", "vibe": "Refactoring Deprecated Code 💿", "year": "2003"},
-            {"track": "05. Complicated", "artist": "Avril Lavigne", "vibe": "Debugging Recursion Anomalies 🛹", "year": "2002"}
+            {"track": "01. So Good", "artist": "Bratz Rock Angelz", "vibe": "Hackathon Crunch", "year": "2005"},
+            {"track": "02. Barbie Girl", "artist": "Aqua", "vibe": "Frontend Styling", "year": "1997"},
+            {"track": "03. Toxic", "artist": "Britney Spears", "vibe": "Bug Extermination", "year": "2003"},
+            {"track": "04. So Yesterday", "artist": "Hilary Duff", "vibe": "Refactoring Session", "year": "2003"}
         ]
         
-        selected_track = st.selectbox(
-            "Select Mixtape Track to Play:",
+        sel = st.selectbox(
+            "Select Mixtape Track:",
             options=[f"{t['track']} • {t['artist']}" for t in tracks],
             index=0
         )
         
-        track_info = next(t for t in tracks if f"{t['track']} • {t['artist']}" == selected_track)
+        curr = next(t for t in tracks if f"{t['track']} • {t['artist']}" == sel)
         
         st.markdown(
             f"""
-            <div style="background: #2B1020; border: 3px solid #FF85B3; border-radius: 16px; padding: 20px; color: #FFFFFF; max-width: 650px; margin: 10px 0; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
-                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #FF85B3; padding-bottom: 8px; margin-bottom: 12px;">
-                    <span style="font-family: 'Courier New', monospace; color: #FF85B3; font-weight: 700;">💿 WINAMP V2.91 // AJ_PLAYER</span>
-                    <span style="background: #FF1493; padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; font-weight: 800;">PLAYING</span>
+            <div style="background: #22121E; border: 2px solid #FF85B3; border-radius: 14px; padding: 20px; color: #FFFFFF; max-width: 620px; margin: 12px 0;">
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #555; padding-bottom: 8px; font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #FF85B3;">
+                    <span>WINAMP AUDIO // DECK 01</span>
+                    <span style="background: #E0218A; color: #FFF; padding: 2px 8px; border-radius: 4px;">ACTIVE</span>
                 </div>
-                <div style="display: flex; gap: 16px; align-items: center;">
-                    <div style="font-size: 2.8rem;">🎵</div>
-                    <div>
-                        <div style="font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; color: #FF85B3;">
-                            {track_info['track']}
-                        </div>
-                        <div style="font-size: 0.95rem; color: #E8D7FF;">
-                            Artist: <b>{track_info['artist']}</b> ({track_info['year']})
-                        </div>
-                        <div style="font-size: 0.85rem; color: #FFC1D9; margin-top: 4px;">
-                            Mood: <i>{track_info['vibe']}</i>
-                        </div>
+                <div style="margin-top: 14px;">
+                    <div style="font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: #FFD2E2;">
+                        {curr['track']}
                     </div>
-                </div>
-                <div style="margin-top: 16px; background: rgba(255,255,255,0.1); border-radius: 6px; height: 6px; overflow: hidden;">
-                    <div style="background: #FF1493; width: 68%; height: 100%;"></div>
+                    <div style="font-size: 0.95rem; color: #CCC; margin-top: 2px;">
+                        Artist: {curr['artist']} ({curr['year']})
+                    </div>
+                    <div style="font-size: 0.85rem; color: #FF85B3; margin-top: 4px;">
+                        Focus Mode: {curr['vibe']}
+                    </div>
                 </div>
             </div>
             """,

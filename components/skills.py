@@ -2,51 +2,55 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 from data.content import SKILLS_DATA, TECH_STACK
-from utils.helpers import render_sticker
 
 
 def render_skills_section():
-    """Render 02 / THE SKILL SHEET: Interactive chart, data table, and skill narratives."""
+    """Render 02 / THE SKILL SHEET: Clean Dreamhouse Infographic (Inspired by Inspo 1)."""
     
     st.markdown(
         """
-        <div class="spread-title">
-            <span>02 / THE SKILL SHEET: METRICS & TECH STACK</span>
-            <span class="spread-category">SELF-ASSESSED SKILLS • 0-100 SCALE</span>
+        <div style="border-bottom: 2.5px solid #68C7B5; padding-bottom: 8px; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap;">
+            <div>
+                <span style="font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; color: #68C7B5; letter-spacing: 2px;">02 // THE SKILL SHEET</span>
+                <h2 style="font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 900; color: #22121E; margin: 4px 0 0 0;">
+                    Skills & Tech Stack Blueprint
+                </h2>
+            </div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 0.82rem; color: #C2185B;">
+                DREAMHOUSE INFOGRAPHIC · 0-100 METRICS
+            </div>
         </div>
         """,
         unsafe_allow_html=True
     )
     
+    # Outer Dreamhouse Mint Teal Container
     st.markdown(
         """
-        <p style="font-size: 0.95rem; color: #4A1A32; line-height: 1.6;">
-            The ratings below reflect proposed self-assessments on a <b>0–100 scale</b>, balancing core computer science foundations,
-            game development architecture, AI system integration, and collaborative leadership.
-        </p>
+        <div class="dreamhouse-roof">
+            <span class="dreamhouse-roof-badge">THE CS DREAMHOUSE BLUEPRINT</span>
+        </div>
         """,
         unsafe_allow_html=True
     )
     
-    # Filter controls in columns
-    col_filter_cat, col_filter_slider = st.columns([1.2, 1.2])
-    
-    with col_filter_cat:
+    # Filter Controls in Clean Room Container
+    ctrl_col1, ctrl_col2 = st.columns([1.2, 1.2])
+    with ctrl_col1:
         categories = ["All Categories"] + sorted(list(set(s["category"] for s in SKILLS_DATA)))
         selected_cat = st.selectbox(
-            "Filter by Domain Category:",
+            "Filter Competency Domain:",
             options=categories,
             index=0
         )
-        
-    with col_filter_slider:
+    with ctrl_col2:
         min_score = st.slider(
-            "Minimum Proficiency Rating:",
+            "Minimum Score Threshold:",
             min_value=50,
             max_value=90,
             value=65,
             step=5,
-            help="Filter competencies based on minimum self-assessment rating"
+            help="Filter competencies by self-assessed rating threshold"
         )
         
     # Prepare DataFrame
@@ -55,100 +59,127 @@ def render_skills_section():
     if selected_cat != "All Categories":
         filtered_df = filtered_df[filtered_df["category"] == selected_cat]
         
-    # 2 Columns: Chart on Left, Interactive Table on Right
-    col_chart, col_table = st.columns([1.3, 1.1], gap="large")
+    st.write("")
     
-    with col_chart:
-        st.markdown("#### 📊 Interactive Proficiency Chart")
+    # 2 Room Columns: Left Chart Room (Lipstick Bar Chart Style), Right Room (Data Table & Stats)
+    room_col1, room_col2 = st.columns([1.35, 1.1], gap="medium")
+    
+    with room_col1:
+        st.markdown(
+            """
+            <div class="dreamhouse-room-title">
+                <span>Her Success // Proficiency Bars</span>
+                <span class="dreamhouse-room-tag">ALTAIR METRIC</span>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        
         if not filtered_df.empty:
+            # Rounded lipstick/bullet-top horizontal bar chart
             chart = alt.Chart(filtered_df).mark_bar(
-                cornerRadiusTopRight=8,
-                cornerRadiusBottomRight=8,
-                height=24
+                cornerRadiusTopRight=10,
+                cornerRadiusBottomRight=10,
+                height=26
             ).encode(
                 x=alt.X(
                     "score:Q",
-                    title="Self-Rating (0 - 100)",
+                    title="Self-Assessment Score (0 - 100)",
                     scale=alt.Scale(domain=[0, 100])
                 ),
                 y=alt.Y(
                     "skill:N",
                     sort="-x",
-                    title="Competency Area",
-                    axis=alt.Axis(labelLimit=200)
+                    title="Competency",
+                    axis=alt.Axis(labelLimit=200, labelFont="Outfit", labelFontSize=12)
                 ),
                 color=alt.Color(
                     "score:Q",
-                    scale=alt.Scale(range=["#FF85B3", "#FF1493", "#D81B60"]),
+                    scale=alt.Scale(
+                        range=["#FF85B3", "#E0218A", "#C2185B"]
+                    ),
                     legend=None
                 ),
                 tooltip=[
                     alt.Tooltip("skill:N", title="Skill"),
                     alt.Tooltip("score:Q", title="Rating"),
-                    alt.Tooltip("category:N", title="Category"),
-                    alt.Tooltip("description:N", title="Focus")
+                    alt.Tooltip("category:N", title="Domain"),
+                    alt.Tooltip("description:N", title="Application")
                 ]
             ).properties(
-                height=max(220, len(filtered_df) * 40)
+                height=max(240, len(filtered_df) * 44)
             ).configure_axis(
-                labelFontSize=12,
-                titleFontSize=13
+                gridColor="#FCE4EC",
+                tickColor="#FFAEC9"
             )
             st.altair_chart(chart, use_container_width=True)
         else:
-            st.warning("No skills match the selected filter criteria.")
+            st.warning("No competencies match the current filter selection.")
             
-    with col_table:
-        st.markdown("#### 📋 Skills Data Table")
+    with room_col2:
+        st.markdown(
+            """
+            <div class="dreamhouse-room-title">
+                <span>Data Ledger & Stats</span>
+                <span class="dreamhouse-room-tag">DATA TABLE</span>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        
         display_df = filtered_df[["skill", "highlight", "category"]].rename(
             columns={
                 "skill": "Competency",
-                "highlight": "Rating",
+                "highlight": "Score",
                 "category": "Domain"
             }
         )
-        st.dataframe(
-            display_df,
-            use_container_width=True,
-            hide_index=True
-        )
+        st.dataframe(display_df, use_container_width=True, hide_index=True)
         
-        # Summary pill highlights
+        # Summary metrics
         avg_score = filtered_df["score"].mean() if not filtered_df.empty else 0
         top_skill = filtered_df.sort_values(by="score", ascending=False).iloc[0]["skill"] if not filtered_df.empty else "N/A"
         
         st.markdown(
             f"""
-            <div style="background: #FFFFFF; border: 2px dashed #FF1493; border-radius: 12px; padding: 12px; margin-top: 10px;">
-                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 700; color: #D81B60;">
-                    <span>🌟 Top Competency:</span>
-                    <span>{top_skill}</span>
+            <div style="background: #FFF5F8; border: 1.5px solid #FFD2E2; border-radius: 12px; padding: 12px; margin-top: 14px;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #C2185B;">
+                    <span>TOP COMPETENCY:</span>
+                    <span style="color: #22121E;">{top_skill}</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 700; color: #2B1020; margin-top: 4px;">
-                    <span>📈 Average Score:</span>
-                    <span>{avg_score:.1f} / 100</span>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #C2185B; margin-top: 6px;">
+                    <span>DOMAIN AVERAGE:</span>
+                    <span style="color: #22121E;">{avg_score:.1f} / 100</span>
                 </div>
             </div>
             """,
             unsafe_allow_html=True
         )
 
-    # Skills in Words - Full Descriptions Grid
+    # Room: Skills in Words
     st.write("")
-    st.markdown("#### 💬 Skills in Words & Practical Applications")
+    st.markdown(
+        """
+        <div class="dreamhouse-room-title" style="margin-top: 1.5rem;">
+            <span>Her Influence // Skills in Words</span>
+            <span class="dreamhouse-room-tag">DESCRIPTIONS</span>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     
     desc_cols = st.columns(2)
-    for i, row in enumerate(filtered_df.itertuples()):
-        c = desc_cols[i % 2]
+    for idx, row in enumerate(filtered_df.itertuples()):
+        c = desc_cols[idx % 2]
         with c:
             st.markdown(
                 f"""
-                <div style="background: #FFFFFF; border-left: 3px solid #FF85B3; border-radius: 0 10px 10px 0; padding: 10px 14px; margin-bottom: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
-                    <div style="font-weight: 800; font-size: 0.95rem; color: #D81B60; display: flex; justify-content: space-between;">
+                <div style="background: #FFFFFF; border: 1px solid #FFE4EC; border-left: 3.5px solid #68C7B5; border-radius: 6px; padding: 10px 14px; margin-bottom: 10px;">
+                    <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 0.92rem; color: #22121E;">
                         <span>{row.skill}</span>
-                        <span style="color: #FF1493; font-size: 0.85rem;">{row.highlight}</span>
+                        <span style="color: #E0218A; font-family: 'Space Mono', monospace; font-size: 0.82rem;">{row.highlight}</span>
                     </div>
-                    <div style="font-size: 0.86rem; color: #3A1828; margin-top: 4px; line-height: 1.45;">
+                    <div style="font-size: 0.86rem; color: #4A2838; margin-top: 4px; line-height: 1.45;">
                         {row.description}
                     </div>
                 </div>
@@ -156,32 +187,34 @@ def render_skills_section():
                 unsafe_allow_html=True
             )
 
-    # Tech Stack Strip & Interactive Multiselect
+    # Bottom Room: Tech Wardrobe
     st.write("")
-    st.markdown("#### 💄 The Tech Stack Strip")
-    
-    # Multiselect component from lecture
-    all_tech_names = [t["name"] for t in TECH_STACK]
-    selected_tech = st.multiselect(
-        "Highlight technologies you want to inspect:",
-        options=all_tech_names,
-        default=["Python", "Godot Engine", "GDScript", "Azure AI Services", "Streamlit"],
-        help="Filter the tech wardrobe tags"
+    st.markdown(
+        """
+        <div class="dreamhouse-room-title" style="margin-top: 1.2rem;">
+            <span>The Tech Wardrobe // Stack Inspector</span>
+            <span class="dreamhouse-room-tag">ACTIVE TOOLS</span>
+        </div>
+        """,
+        unsafe_allow_html=True
     )
     
-    # Render interactive tags
-    tags_html = '<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;">'
+    all_tech = [t["name"] for t in TECH_STACK]
+    selected_tech = st.multiselect(
+        "Filter and inspect technologies in the portfolio wardrobe:",
+        options=all_tech,
+        default=["Python", "Godot Engine", "GDScript", "Microsoft Azure AI", "Streamlit"]
+    )
+    
+    tags_html = '<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">'
     for t in TECH_STACK:
-        is_highlighted = t["name"] in selected_tech
-        border_style = "2px solid #FF1493" if is_highlighted else "1px solid #FFE4EC"
-        bg_style = "linear-gradient(135deg, #FF1493, #D81B60)" if is_highlighted else "#FFFFFF"
-        text_color = "#FFFFFF" if is_highlighted else "#2B1020"
-        shadow = "0 4px 10px rgba(255, 20, 147, 0.35)" if is_highlighted else "none"
-        
+        is_sel = t["name"] in selected_tech
+        bg = "#E0218A" if is_sel else "#FFFFFF"
+        color = "#FFFFFF" if is_sel else "#22121E"
+        border = "2px solid #E0218A" if is_sel else "1.5px solid #FFD2E2"
         tags_html += f"""
-        <div style="background: {bg_style}; border: {border_style}; color: {text_color}; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; display: flex; align-items: center; gap: 6px; box-shadow: {shadow};">
-            <span>{t['icon']}</span>
-            <span>{t['name']}</span>
+        <div style="background: {bg}; color: {color}; border: {border}; padding: 6px 14px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 0.78rem; font-weight: 700;">
+            [{t['category'].upper()}] {t['name']}
         </div>
         """
     tags_html += '</div>'

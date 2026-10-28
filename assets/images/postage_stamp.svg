@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150" width="120" height="150">
+  <defs>
+    <filter id="stampShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect x="5" y="5" width="110" height="140" fill="#FFF0F5" stroke="#FF1493" stroke-width="3" stroke-dasharray="6,6" rx="4" filter="url(#stampShadow)"/>
+  <rect x="14" y="14" width="92" height="95" fill="#FFE4EC" rx="4"/>
+  <text x="60" y="45" font-family="Georgia, serif" font-weight="bold" font-size="14" fill="#D81B60" text-anchor="middle">CIT-U</text>
+  <text x="60" y="65" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FF1493" text-anchor="middle">SECTION F2</text>
+  <text x="60" y="88" font-family="Impact, sans-serif" font-size="20" fill="#880E4F" text-anchor="middle">2026</text>
+  <text x="60" y="128" font-family="Courier New, monospace" font-size="10" font-weight="bold" fill="#2B1020" text-anchor="middle">AIR MAIL // 1ST</text>
+</svg>
